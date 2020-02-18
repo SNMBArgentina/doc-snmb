@@ -5,6 +5,7 @@
 * [Guía rápida](user/quickstart.md).
 * [Configuración de aplicaciones](user/config.md).
 * [Creación de aplicaciones](user/create.md).
+* [Edición árbol de capas](dev/layer_editing.md)
 * [Descargas](user/download.md).
 
 ## Desarrollador
