@@ -4,16 +4,19 @@ El árbol de capas del portal SNMB-Argentina se maneja desde el fichero `layers.
 
 Un fichero JSON es un conjunto de pares propiedad-valor. Tanto la propiedad como el valor van entre comillas dobles (" "), con dos puntos (:) entre los dos y, cada par, separados por comas. El conjunto tiene que ir dentro de llaves ({ }). Por ejemplo:
 
-```bash
+```json
 { "propiedad1": "valor1", "propiedad2": "valor2", ... }
 ```
+
 Un array se asemeja al concepto matemático de vector. Representan valores múltiples para una misma propiedad. Los valores también van entre comillas dobles y separados por comas, pero en este caso van dentro de corchetes ([ ]). Ejemplo:
- ```bash
+
+```json
 "propiedad": ["valor1", "valor2",...]
 ```
+
 Los valores de una propiedad pueden a su vez ser un JSON. Ejemplo:
 
-```bash
+```json
 {"propiedad1": [{"propiedad1.1": "valor1.1",
                 "propiedad1.2": "valor1.2"}....]}
 ```
@@ -21,14 +24,17 @@ Los valores de una propiedad pueden a su vez ser un JSON. Ejemplo:
 Más ejemplos del caso que nos ocupa serían
 
 JSON básico:
-```bash
+
+```json
 {"id": "unique-id-1520610491279",
  "type": "wms",
  "label": ""
 }
 ```
+
 JSON con valores únicos y múltiples (array):
-```bash
+
+```json
 {
     "items": [
         "departamentos",
@@ -42,7 +48,7 @@ JSON con valores únicos y múltiples (array):
 
 Valores JSON:
 
-```bash
+```json
 {"wmsLayers": [
         {
             "queryType": "wms",
@@ -65,6 +71,7 @@ Valores JSON:
         }]
 }
 ```
+
 El fichero layers.json tiene cuatro propiedades principales, `default-server`, `wmsLayers`, `portalLayers` y `groups`.
 
 Más abajo se entran en detalles de cada una de las propiedades, pero para una primera aproximación diremos que, salvo `default-server`, que define el servidor que se usará en cado de que las capas no incluyan URL propias, las demás se encargan del manejo de las capas y la distribución de las mismas en el árbol.
@@ -80,7 +87,8 @@ Para incorporar una nueva capa hay que añadir un nuevo elemento JSON en el arra
 Una vez insertada en `wms-layer` hay que insertarla a su vez en `portalLayers`, de la misma manera que el paso anterior. Únicamente indicar que en esta propiedad no importa el orden.
 
 La nueva capa insertada va a seguir el formato json, recordamos, pares propiedad-valor, tanto en `wms-layer` como en `portalLayers`. Las propiedades que lleva cada una se describen en el fichero [layers.md](../dev/layers.md). Ejemplos:
-```bash
+
+```json
 {
     "wmsLayers": [
         {
@@ -99,7 +107,8 @@ La nueva capa insertada va a seguir el formato json, recordamos, pares propiedad
         }]
 }
 ```
-```bash
+
+```json
 {"portalLayers": [
         {
              "layers": [
@@ -119,7 +128,8 @@ La nueva capa insertada va a seguir el formato json, recordamos, pares propiedad
 
 ### Incorporación de un grupo
 El procedimiento es el mismo que el explicado para la incorporación de capas, añadiendo la/s capa/s en la propiedad `groups`. Aquí vuelve a ser importante el orden de inserción del elemento ya que determina el orden de las etiquetas en el árbol. Simplemente sería añadir un nuevo JSON con una propiedad `items`, que es un array, los `id` de las capas que queremos que pertenezcan al grupo. Además hay que añadir las propiedades que se describen en el fichero [layers.md](../dev/layers.md), con habíamos comentado anteriormente. Por ejemplo:
-```bash
+
+```json
     "groups": [
         {
             "items": [
@@ -135,12 +145,11 @@ El procedimiento es el mismo que el explicado para la incorporación de capas, a
         .
 ]
 ```
+
 ### Incorporación de un subgrupo
 Un subgrupo se incorpora dentro de un grupo. En la propiedad `items` del grupo, insertariamos el subgrupo de la misma forma que se inserta un grupo.
 
-
-
-```bash
+```json
 "groups": [
         {
             "items": [
