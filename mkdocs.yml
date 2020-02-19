@@ -11,6 +11,8 @@ nav:
     - 'Configuración de aplicaciones': user/config.md
     - 'Creación de aplicaciones': user/create.md
     - 'Descargas': user/download.md
+    - Edición árbol de capas: dev/layer_editing.md
+
 - Desarrollador:
     - 'Guía rápida': dev/quickstart.md
     - 'Código fuente': dev/source_code.md
