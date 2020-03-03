@@ -5,7 +5,7 @@
 * [Guía rápida](user/quickstart.md).
 * [Configuración de aplicaciones](user/config.md).
 * [Creación de aplicaciones](user/create.md).
-* [Edición árbol de capas](user/layer_editing.md)
+* [Edición archivo layers.json](user/layer_json_editing.md)
 * [Modificación del Logo e Imagen de la cabecera](user/header_editing.md)
 * [Descargas](user/download.md).
 
