@@ -7,6 +7,7 @@
 * [Creación de aplicaciones](user/create.md).
 * [Edición árbol de capas](user/layer_editing.md)
 * [Modificación del Logo e Imagen de la cabecera](user/header_editing.md)
+* [Añadir iconos en las capas](user/add_icons.md)
 * [Descargas](user/download.md).
 
 ## Desarrollador
