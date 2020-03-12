@@ -1,4 +1,4 @@
-### Introducción
+# Introducción
 
 El árbol de capas del portal SNMB-Argentina se maneja desde el fichero `layers.json`. Por este motivo lo primero vamos a intentar explicar algunos conceptos para manejar este tipo de archivos.
 
@@ -80,6 +80,58 @@ De abajo a arriba dentro de la distribución de las propiedades en el fichero, l
 La propiedad `portalLayers` especifica lo que es visible al usuario, tanto las capas propiamente dichas como las leyendas.
 En la propiedad `wmsLayers` van todas las capas, 
 leyendas del portal, etc, sean visibles al usuario o no.
+
+## Edición del arbol de capas usando el editor
+El portal está preparado para la edición del arbol de capas mediante la herramienta de edición del mismo. Lo primero que necesitaremos para poder empezar con la edición es tener cuenta de usuario con permisos de edición. Mediante el login deberemos acceder con nuestras credenciales:
+
+![](images/login.png)
+
+*Fig. 1. Dialogo de acceso con credenciales*
+
+Una vez que estemos logueados con éxito veremos que nuestro arbol de capas tiene los controles necesarios para la edición:
+
+![](images/layer_editor.gif)
+
+*Fig. 2. Aparición de los controles de edición*
+
+Utilizando los iconos de edición:
+
+![](images/edition_icons.png)
+
+*Fig. 3. Iconos de edición*
+
+desplegaremos los formularios de creación ![](images/add.png) eliminación ![](images/remove.png) o edición ![](images/edition.png) o creación de un nuevo grupo ![](images/new_group.png)
+
+Empezando por la creación de unn grupo, pulsaríamos sobre el botón nuvo grupo ![](images/new_group.png) y aparecerá el formulario de creación de nuevo grupo:
+
+![](images/form_new_group.png)
+
+*Fig. 4. Formulario de nuevo grupo*
+
+Los campos a cubrir están descritos en la referencia [Arbol de Capas](../dev/layers.md).
+
+En este caso lo que haremos será definir un identificador de grupo y una etiqueta de la siguiente manera
+
+![](images/form_new_group_filled.png)
+
+*Fig. 5. Formulario de nuevo grupo cubierto*
+
+Seguidamente pulsaremos sobre el botón `Aplicar` para guardar los cambios en el arbol de capas.
+
+!!! note
+
+    Los cambios no serán grabados en el portal hasta que no se pulse sobre el botón guardar que se encuentra en la barra de navegación. 
+    
+!!! warning
+
+    Si antes de guardar se refresca el portal se perderían las ediciones realizadas
+
+![](images/new_group_created.png)
+
+*Fig. 6. Nuevo grupo creado*
+
+## Edición directa del archivo layers.json
+Una manera de poder editar el arbol de capas es mediante la edición directa del archivo `layers.json`
 
 ### Incorporación de una nueva capa
 Para incorporar una nueva capa hay que añadir un nuevo elemento JSON en el array de la propiedad `wms-layer`. Es muy importante la posición donde se inserta el nuevo elemento, ya que el orden de los elementos en el array definen el orden de las capas en el dibujado del mapa. En este caso, por ejemplo, las capas base deben ser las primeras para que las demás capas se pinten encima.
