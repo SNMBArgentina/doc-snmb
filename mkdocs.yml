@@ -1,18 +1,20 @@
 site_name: Documentación de la Plataforma de Diseminación de datos SNMB-Argentina
 theme: material
-markdown_extensions: [codehilite]
+markdown_extensions: 
+    - codehilite
+    - admonition
 plugins:
     - pdf-export:
-        combined: true
+        combined: true    
 nav:
 - Home: index.md
 - Usuario:
     - 'Guía rápida': user/quickstart.md
     - 'Configuración de aplicaciones': user/config.md
     - 'Creación de aplicaciones': user/create.md
-    - Edición archivo layers.json: user/layer_json_editing.md
-    - Modificación del Logo e Imagen de la cabecera: user/header_editing.md
-    - Añadir iconos en las capas: user/add_icons.md
+    - 'Edición del Arbol de capas': user/layer_json_editing.md
+    - 'Modificación del Logo e Imagen de la cabecera': user/header_editing.md
+    - 'Añadir iconos en las capas': user/add_icons.md
     - 'Descargas': user/download.md
     
 
@@ -27,9 +29,9 @@ nav:
     - Contribuir: dev/contribute.md
 
 - Documentación técnica:
-    - Diagrama de clases: dev/class_diagram.md
-    - Diagrama Entidad-Relación: dev/entidad_relacion.md
-    - Árbol de capas: dev/layers.md
+    - 'Diagrama de clases': dev/class_diagram.md
+    - 'Diagrama Entidad-Relación': dev/entidad_relacion.md
+    - 'Árbol de capas': dev/layers.md
 
 - Referencia:
     - 'Registro de cambios': ref/changelog.md
