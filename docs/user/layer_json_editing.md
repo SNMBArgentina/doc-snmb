@@ -94,9 +94,9 @@ Una vez que estemos logueados con éxito veremos que nuestro arbol de capas tien
 
 *Fig. 2. Aparición de los controles de edición*
 
-### Iconos de edición  ![](images/edition_icons.png) ![](images/new_group.png)
+### Iconos de edición  ![](images/edition_icons.png) ![](images/new_subGroup.png) ![](images/new_group.png)
 
-Los iconos de edición nos van a permitir desplegar los formularios para crear un grupo ![](images/new_group.png), crear una capa ![](images/add.png), eliminar una capa o un grupo ![](images/remove.png) y editar un grupo o una capa ![](images/edition.png)
+Los iconos de edición nos van a permitir desplegar los formularios para crear un grupo ![](images/new_group.png), añadir un subgrupo ![](images/new_subGroup.png), crear una capa ![](images/add.png), eliminar una capa o un grupo ![](images/remove.png) y editar un grupo o una capa ![](images/edition.png)
 
 ### Grupos
 Para crear un grupo nuevo, pulsaríamos sobre el botón nuevo grupo ![](images/new_group.png) y aparecerá el formulario de creación de grupo:
@@ -107,7 +107,7 @@ Para crear un grupo nuevo, pulsaríamos sobre el botón nuevo grupo ![](images/n
 
 Los campos a cubrir están descritos en la referencia [Arbol de Capas](../dev/layers.md).
 
-En este caso lo que haremos será definir un identificador de grupo y una etiqueta de la siguiente manera
+En este caso lo que haremos será definir un identificador de grupo y una etiqueta
 
 ![](images/form_new_group_filled.png)
 
@@ -131,13 +131,44 @@ Para poder realizar cambios en un grupo ya creado hay que pulsar el icono de edi
 
 ![](images/group.png)
 
-*Fig. 6 Grupo con botones de eliminación, creación y edición*
+*Fig. 6 Grupo con botones de eliminación, creación subgrupo, alta capa y edición grupo*
 
 De esta manera se abriría el formulario de grupo que vimos en la creación de grupo, con todos los datos del grupo que editamos, donde realizaríamos las modificaciones necesarias.
 
 De la misma manera que cuando creamos un grupo, habría que pulsar el botón `Apply` y el botón `Guardar` de la barra de herramientas antes de refrescar el portal.
 
 Para eliminar un grupo hay que pulsar el botón de eliminar ![](images/remove.png) que está en la misma línea del grupo a eliminar. En este caso,al no desplegarse ningún formulario, no existe el botón `Apply`, por lo que se eliminaría el grupo directamente. Lo que si hay que pulsar es el botón `Guardar` antes de refrescar el portal para no perder las modificaciones.
+
+### Subgrupos
+
+Para crear un subgrupo hay que pulsar el icono ![](images/new_subGroup.png) en la línea del grupo en el que queremos incluirlo. Al pulsar se abre el formulario de creación de subgrupo
+
+![](images/form_new_subgroup.png)
+
+*Fig. 7 Formulario de creación de subgrupo*
+
+En el formulario hay que definir un identificador y una etiqueta al nuevo subgrupo. Aparece un identificador por defecto que puede ser modificado
+
+![](images/new_subgroup_created.png)
+
+*Fig. 8 Nuevo subgrupo creado
+
+Como en los casos anteriores, hay que pulsar el botón `Apply` y el botón `Guardar` antes de refrescar el portal para que se guarden los cambios.
+
+Una vez creado el subgrupo ya se pueden añadir las capas correspondientes de la forma que se explica en el apartado siguiente.
+
+Cuando se crea un subgrupo desde grupo, se sitúa en la parte de abajo del grupo. Si se crea desde el botón de la línea del subgrupo, se sitúa a continuación del mismo.
+
+![](images/new_two_subgroup.png)
+
+*Fig. 9 Subgrupos creados desde grupo y desde subgrupo
+
+De todas formas, los subgrupos, al igual que las capas, se pueden mover de sitio pinchando y arrastrando, pero sólo dentro del grupo donde se creó, es decir, no se puede cambiar de grupo.
+
+![](images/move_subgroup.gif)
+
+*Fig. 10 Mover subgrupo
+
 
 ### Capas
 Una nueva capa se puede crear dentro de un grupo o dentro de un subgrupo. Para hacerlo hay que pulsar el botón de crear capa ![](images/add.png). Si se pulsa el botón que está en la linea de un grupo se añadiría la capa dentro de ese grupo. Ver Fig. 6.
@@ -147,7 +178,7 @@ Si se pulsara en la línea de un subgrupo se añadiría en el subgrupo.
 
 ![](images/subgroup.png)
 
-*Fig 7. Subgrupo con los botones de eliminación, creación y edición*
+*Fig 11. Subgrupo con los botones de eliminación, creación y edición*
 
 
 Al pulsar se abriría el formulario de creación de una capa, donde, como en el caso de creación de un grupo, tendríamos que definir un identificador de la capa y una etiqueta para la misma.
@@ -155,17 +186,23 @@ Las propiedades a cubrir están descritos en la referencia [Árbol de Capas](../
 
 ![](images/layer_editing.png)
 
-*Fig. 8. Formulario de nueva capa*
+*Fig. 12. Formulario de nueva capa*
 
 Para realizar modificaciones en una capa ya creada hay que pulsar el icono de edición ![](images/edition.png) que se encuentra en la misma linea que la capa que queremos modificar. Al pulsar en el icono se abrirá el mismo formulario que para la creación de una nueva capa, pero con las propiedades de la capa a modificar, lo que nos permitirá cambiar las que precisemos.
 
 ![](images/layer_icon_editing.png)
 
-*Fig. 9. Capa con botón de edición*
+*Fig. 13. Capa con botón de edición*
 
 Tanto en la adición de una nueva capa como en la modificación de una existente, tenemos que pulsar el botón `Apply` y el botón `Guardar` antes de refrescar el portal, tal y como se indicó anteriormente.
 
 Para eliminar una capa simplemente hay que pulsar el botón de eliminar ![](images/remove.png) que está en la misma linea que la capa a eliminar. En este caso se elimina directamente sin necesidad de pulsar el botón `Apply`, de hecho no existe en este caso, pero si, insistimos, hay que pulsar `Guardar` como en los casos anteriores.
+
+Tal y como se comentó en el apartado de subgrupos, las capas se pueden mover, pinchando y arrastrando,  dentro del grupo o subgrupo al que pertenecen.
+
+![](images/move_layer.gif)
+
+*Fig. 14 Mover capa*
 
 ### Orden de las capas en el árbol
 
@@ -173,19 +210,19 @@ El orden de las capas es importante a la hora de que el dibujado del mapa se vea
 
 ![](images/button_layer_order.png)
 
-*Fig. 10. Botón orden de capas*
+*Fig. 15. Botón orden de capas*
 
 Al pulsarlo se abre un formulario con las capas por orden de abajo a arriba.
 
 ![](images/arbol_capas.png)
 
-*Fig. 11. Formulario de orden de capas*
+*Fig. 16. Formulario de orden de capas*
 
 Para modificar el orden simplemente hay que pinchar y arrastrar la capa al sitio nuevo que queramos. Recalcamos la importancia del orden. Las primeras capas de esta lista son las que se pintan más abajo, por lo que en este caso, es importante que las primeras de la lista sean las capas base para que las demás capas se pinten encima.
 
 ![](images/layer_order.gif)
 
-*Fig. 12. Orden de capas modificado. Movida la capa `Selva Paranaense(2002)`*
+*Fig. 17. Orden de capas modificado. Movida la capa `Selva Paranaense(2002)`*
 
 Una vez ordenadas las capas simplemente hay que pulsar el botón `Guardar` de la barra de navegación para persistir los cambios.
 
