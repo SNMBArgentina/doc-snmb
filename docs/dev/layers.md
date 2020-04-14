@@ -8,7 +8,7 @@ Este elemento JSON tiene cuatro propiedades:
 * `portalLayers`
 * `groups`
 
-### `default-server` 
+### `default-server`
 
 Define el servidor por defecto en el caso en que no se especifique un servidor base en el atributo `baseUrl` de la propiedad `wmsLayers`.
 
@@ -44,7 +44,7 @@ Para `gmaps`(Google Maps):
 * `gmaps-type`: tipo de carga de Google: `ROADMAP`, `SATELLITE`, `HYBRID` o `TERRAIN`.
 
 
-### `portalLayers` 
+### `portalLayers`
 Define las capas que aparecen visibles al usuario. Cada `portalLayer` puede contener varias `wmsLayers`. Cada `portalLayer` puede contener los siguientes elementos:
 
 * `id`: identificador de la capa.
@@ -59,11 +59,12 @@ Define las capas que aparecen visibles al usuario. Cada `portalLayer` puede cont
 * `date-format`: Formato de la fecha para cada capa. Según la librería `Moment <http://momentjs.com/docs/#/displaying>_`. Por ejempo: `DD-MM-YYYY`. Por defecto sólo el año (`YYYY`).
 * 'feedback`: En el caso de que la herramienta de feedback esté instalada, si se quiere o no que la capa aparezca en dicha herramienta para permitir al usuario hacer comentarios sobre la capa.
 
-### `groups` 
+### `groups`
 Define la estructura final de las capas en el árbol de capas. Cada elmento de `groups` contiene:
 
 * `id`: Identificador del grupo.
 * `label`: Igual que en `portalLayer`.
 * `infoFile`: Igual que en `portalLayer`.
 * `infoLink`: Igual que en `portalLayer`.
+* `sameLegend`: Si todas las capas del grupo comparten la misma leyenda (se evita que se duplique).
 * `items`. Array con los identificadores de otros grupos (con la misma estructura que este elemento; recursivo) o capas (`portalLayer`).
