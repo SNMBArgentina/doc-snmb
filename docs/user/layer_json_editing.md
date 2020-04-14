@@ -147,7 +147,7 @@ Para crear un subgrupo hay que pulsar el icono ![](images/new_subGroup.png) en l
 
 *Fig. 7 Formulario de creación de subgrupo*
 
-En el formulario hay que definir un identificador y una etiqueta al nuevo subgrupo. Aparece un identificador por defecto que puede ser modificado
+En el formulario hay que definir, como mínimo, un identificador y una etiqueta al nuevo subgrupo. Aparece un identificador por defecto que puede ser modificado
 
 ![](images/new_subgroup_created.png)
 
@@ -157,17 +157,11 @@ Como en los casos anteriores, hay que pulsar el botón `Apply` y el botón `Guar
 
 Una vez creado el subgrupo ya se pueden añadir las capas correspondientes de la forma que se explica en el apartado siguiente.
 
-Cuando se crea un subgrupo desde grupo, se sitúa en la parte de abajo del grupo. Si se crea desde el botón de la línea del subgrupo, se sitúa a continuación del mismo.
-
-![](images/new_two_subgroup.png)
-
-*Fig. 9 Subgrupos creados desde grupo y desde subgrupo
-
-De todas formas, los subgrupos, al igual que las capas, se pueden mover de sitio pinchando y arrastrando, pero sólo dentro del grupo donde se creó, es decir, no se puede cambiar de grupo.
+Los subgrupos, al igual que las capas, se pueden mover de sitio pinchando y arrastrando, pero sólo dentro del grupo donde se creó, es decir, no se puede cambiar de grupo.
 
 ![](images/move_subgroup.gif)
 
-*Fig. 10 Mover subgrupo
+*Fig. 9 Mover subgrupo
 
 
 ### Capas
@@ -178,7 +172,7 @@ Si se pulsara en la línea de un subgrupo se añadiría en el subgrupo.
 
 ![](images/subgroup.png)
 
-*Fig 11. Subgrupo con los botones de eliminación, creación y edición*
+*Fig 10. Subgrupo con los botones de eliminación, creación y edición*
 
 
 Al pulsar se abriría el formulario de creación de una capa, donde, como en el caso de creación de un grupo, tendríamos que definir un identificador de la capa y una etiqueta para la misma.
@@ -186,7 +180,7 @@ Las propiedades a cubrir están descritos en la referencia [Árbol de Capas](../
 
 ![](images/layer_editing.png)
 
-*Fig. 12. Formulario de nueva capa*
+*Fig. 11. Formulario de nueva capa*
 
 Para realizar modificaciones en una capa ya creada hay que pulsar el icono de edición ![](images/edition.png) que se encuentra en la misma linea que la capa que queremos modificar. Al pulsar en el icono se abrirá el mismo formulario que para la creación de una nueva capa, pero con las propiedades de la capa a modificar, lo que nos permitirá cambiar las que precisemos.
 
