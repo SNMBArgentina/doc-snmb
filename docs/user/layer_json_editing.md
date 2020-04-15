@@ -78,7 +78,7 @@ Más abajo se entran en detalles de cada una de las propiedades, pero para una p
 
 De abajo a arriba dentro de la distribución de las propiedades en el fichero, la propiedad `groups` especifica las etiquetas iniciales del árbol. En este caso serían `Áreas Administrativas`, `Regiones forestales`, `Áreas de bosque` etc. Asimismo especifican los subgrupos (p.ej. `Bosque Nativo` y `Bosque cultivado` dentro del grupo `Áreas de bosque`) y las capas que van dentro de cada grupo o subgrupo.
 La propiedad `portalLayers` especifica lo que es visible al usuario, tanto las capas propiamente dichas como las leyendas.
-En la propiedad `wmsLayers` van todas las capas, 
+En la propiedad `wmsLayers` van todas las capas,
 leyendas del portal, etc, sean visibles al usuario o no.
 
 ## Edición del arbol de capas usando el editor
@@ -117,8 +117,8 @@ Seguidamente pulsaremos sobre el botón `Aplicar` para guardar los cambios en el
 
 !!! note
 
-    Los cambios no serán grabados en el portal hasta que no se pulse sobre el botón guardar que se encuentra en la barra de navegación. 
-    
+    Los cambios no serán grabados en el portal hasta que no se pulse sobre el botón guardar que se encuentra en la barra de navegación.
+
 !!! warning
 
     Si antes de guardar se refresca el portal se perderán las ediciones realizadas
@@ -186,7 +186,7 @@ Para realizar modificaciones en una capa ya creada hay que pulsar el icono de ed
 
 ![](images/layer_icon_editing.png)
 
-*Fig. 13. Capa con botón de edición*
+*Fig. 12. Capa con botón de edición*
 
 Tanto en la adición de una nueva capa como en la modificación de una existente, tenemos que pulsar el botón `Apply` y el botón `Guardar` antes de refrescar el portal, tal y como se indicó anteriormente.
 
@@ -196,7 +196,7 @@ Tal y como se comentó en el apartado de subgrupos, las capas se pueden mover, p
 
 ![](images/move_layer.gif)
 
-*Fig. 14 Mover capa*
+*Fig. 13 Mover capa*
 
 ### Orden de las capas en el árbol
 
@@ -204,19 +204,19 @@ El orden de las capas es importante a la hora de que el dibujado del mapa se vea
 
 ![](images/button_layer_order.png)
 
-*Fig. 15. Botón orden de capas*
+*Fig. 14. Botón orden de capas*
 
 Al pulsarlo se abre un formulario con las capas por orden de abajo a arriba.
 
 ![](images/arbol_capas.png)
 
-*Fig. 16. Formulario de orden de capas*
+*Fig. 15. Formulario de orden de capas*
 
 Para modificar el orden simplemente hay que pinchar y arrastrar la capa al sitio nuevo que queramos. Recalcamos la importancia del orden. Las primeras capas de esta lista son las que se pintan más abajo, por lo que en este caso, es importante que las primeras de la lista sean las capas base para que las demás capas se pinten encima.
 
 ![](images/layer_order.gif)
 
-*Fig. 17. Orden de capas modificado. Movida la capa `Selva Paranaense(2002)`*
+*Fig. 16. Orden de capas modificado. Movida la capa `Selva Paranaense(2002)`*
 
 Una vez ordenadas las capas simplemente hay que pulsar el botón `Guardar` de la barra de navegación para persistir los cambios.
 
@@ -331,3 +331,7 @@ Un subgrupo se incorpora dentro de un grupo. En la propiedad `items` del grupo, 
         .
 ]
 ```
+### Unificar leyendas
+Los grupos y subgrupos tienen una propiedad `sameLegend` para identificar a los grupos/subgrupos cuyas capas se quiere que tengan una misma leyenda unificada. Por ejemplo, se pueden crear subgrupos que cuando el usuario activa todas las capas en la TOC, se muestra una sola entrada en la leyenda.
+
+En caso de un grupo con subgrupos, tiene preferencia lo que se haya definido en el subgrupo sobre el grupo: el atributo `sameLegend` definido a nivel de grupo se ignora, y prevalece el de menor nivel. En cambio, en el caso de un grupo sin subgrupos, las leyenda de las capas es afectada por lo definido a nivel de grupo.

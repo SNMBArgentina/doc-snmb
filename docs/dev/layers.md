@@ -66,5 +66,5 @@ Define la estructura final de las capas en el árbol de capas. Cada elmento de `
 * `label`: Igual que en `portalLayer`.
 * `infoFile`: Igual que en `portalLayer`.
 * `infoLink`: Igual que en `portalLayer`.
-* `sameLegend`: Si todas las capas del grupo comparten la misma leyenda (se evita que se duplique).
+* `sameLegend`: Si todas las capas del grupo comparten la misma leyenda (se evita que se duplique). El atributo está definido a nivel de subgrupo y de grupo. En caso de un grupo con subgrupos, tiene preferencia lo que se haya definido en el subgrupo sobre el grupo.
 * `items`. Array con los identificadores de otros grupos (con la misma estructura que este elemento; recursivo) o capas (`portalLayer`).
