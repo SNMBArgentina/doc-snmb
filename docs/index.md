@@ -3,6 +3,7 @@
 ## Usuario
 
 * [Guía rápida](user/quickstart.md).
+* [Instalación en Ubuntu 18.04](user/install_ubuntu.md).
 * [Configuración de aplicaciones](user/config.md).
 * [Creación de aplicaciones](user/create.md).
 * [Edición del Árbol de capas](user/layer_json_editing.md)
