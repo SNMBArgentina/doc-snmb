@@ -107,25 +107,32 @@ Para comprobar que la gestión de usuarios está funcionando correctamente, debe
 Esta instalación está realizada con el usuario de Ubuntu `root`. En caso de usar otro usuario se deberán adaptar los comandos mediante el uso de `sudo` así como los directorios de las carpetas
 
 ```
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 apt update
 
-apt install openjdk-11-jre unzip tomcat8 postgresql-10 postgresql-10-postgis-2.4
+apt install openjdk-11-jre unzip tomcat8 postgresql-10 postgresql-10-postgis-2.4 yarn
 
-wget https://github.com/SNMBArgentina/app-snmb/archive/v1.0.0.zip
+wget -O app-snmb.zip https://github.com/SNMBArgentina/app-snmb/archive/v1.0.0.zip
 
-unzip v1.0.0.zip
+unzip app-snmb.zip
 
 mv app-snmb-1.0.0/ /srv/app-snmb
 
+chown -R tomcat8:tomcat8 /srv/app-snmb/
+
 cd /srv/app-snmb
 
-wget plugins.zip https://github.com/SNMBArgentina/plugins/archive/7.1.x.zip
+wget -O plugins.zip https://github.com/SNMBArgentina/plugins/archive/7.1.x.zip
 
 unzip plugins.zip
 
+mv plugins-7.1.x/ plugins
+
 rm -rf plugins.zip
 
-cd app-snmb/plugins
+cd plugins
 
 for i in `ls */package.json`; do
    pushd `dirname $i`
@@ -133,11 +140,42 @@ for i in `ls */package.json`; do
    popd
 done
 
-echo 'export GEOLADRIS_CONFIG_DIR=/srv' > /usr/share/tomcat8/bin/setenv.sh # IMPORTANTE el nombre del war deberá ser el mismo que el nombre del directorio de configuración, en este caso app-snmb
-
-service tomcat8 restart
-
 cd /var/lib/tomcat8/webapps
 
 wget -O app-snmb.war https://cloud.geomati.co/s/iKy6L65dgHe2ryS/download
+
+cat > /usr/share/tomcat8/bin/setenv.sh <<EOL
+export JAVA_OPTS="$JAVA_OPTS -DGEOLADRIS_CONFIG_DIR=/srv -DGEOLADRIS_DB_URL=jdbc:postgresql://localhost:5432/geoladris -DGEOLADRIS_DB_USER=geoladris -DGEOLADRIS_DB_PASS=geoladris"
+EOL # IMPORTANTE el nombre del war deberá ser el mismo que el nombre del directorio de configuración, en este caso app-snmb
+
+su postgres
+
+createuser -sPE geoladris
+createuser -PE snmb
+
+psql -d postgres
+
+postgres=# CREATE DATABASE geoladris WITH OWNER geoladris;
+
+postgres=# \c geoladris
+
+geoladris=# create extension postgis;
+
+geoladris=# \q
+
+wget -O geoladris.sql https://cloud.geomati.co/s/66kj7PsZHmGiM5H/download
+
+pg_restore -U geoladris -W geoladris.sql
+
+cat > /etc/tomcat8/tomcat-users.xml <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd" version="1.0">
+  <role rolename="viewer"/>
+  <user username="user" password="pass" roles="viewer"/>
+</tomcat-users>
+EOF 
+
+service tomcat8 restart
 ```
