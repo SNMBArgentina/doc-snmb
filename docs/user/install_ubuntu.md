@@ -119,11 +119,19 @@ mv app-snmb-1.0.0/ /srv/app-snmb
 
 cd /srv/app-snmb
 
-wget -O plugins.zip https://cloud.geomati.co/s/ZKSt5EjdYpkZ9qJ/download
+wget plugins.zip https://github.com/SNMBArgentina/plugins/archive/7.1.x.zip
 
 unzip plugins.zip
 
 rm -rf plugins.zip
+
+cd app-snmb/plugins
+
+for i in `ls */package.json`; do
+   pushd `dirname $i`
+   yarn
+   popd
+done
 
 echo 'export GEOLADRIS_CONFIG_DIR=/srv' > /usr/share/tomcat8/bin/setenv.sh # IMPORTANTE el nombre del war deberá ser el mismo que el nombre del directorio de configuración, en este caso app-snmb
 
