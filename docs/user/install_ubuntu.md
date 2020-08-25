@@ -120,8 +120,6 @@ unzip app-snmb.zip
 
 mv app-snmb-1.0.0/ /srv/app-snmb
 
-chown -R tomcat8:tomcat8 /srv/app-snmb/
-
 cd /srv/app-snmb
 
 wget -O plugins.zip https://github.com/SNMBArgentina/plugins/archive/7.1.x.zip
@@ -139,6 +137,10 @@ for i in `ls */package.json`; do
    yarn
    popd
 done
+
+chown -R tomcat8:tomcat8 /srv/app-snmb/
+
+# Tener en cuenta el archivo `plugin_imports.css` en la carpeta `static`
 
 cd /var/lib/tomcat8/webapps
 
