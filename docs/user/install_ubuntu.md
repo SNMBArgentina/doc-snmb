@@ -140,7 +140,9 @@ done
 
 chown -R tomcat8:tomcat8 /srv/app-snmb/
 
-# Tener en cuenta el archivo `plugin_imports.css` en la carpeta `static`
+cd /srv/app-snmb/static
+
+wget -O plugin_imports.css https://cloud.geomati.co/s/HwRacnsJSKyyS7z/download
 
 cd /var/lib/tomcat8/webapps
 
